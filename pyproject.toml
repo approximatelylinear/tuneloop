@@ -1,0 +1,34 @@
+[project]
+name = "tuneloop"
+version = "0.1.0"
+description = "RL fine-tuning workbench for local LLMs"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115",
+    "uvicorn[standard]>=0.34",
+    "httpx>=0.28",
+    "sqlmodel>=0.0.22",
+    "typer>=0.15",
+    "rich>=13",
+    "setuptools>=75,<81",
+]
+
+[project.optional-dependencies]
+train = [
+    "torch>=2.1",
+    "transformers>=4.40",
+    "trl>=0.12",
+    "peft>=0.13",
+    "bitsandbytes>=0.44",
+    "datasets>=3.0",
+    "accelerate>=1.0",
+    "tensorboard>=2.14",
+    "sentencepiece>=0.2",
+]
+
+[project.scripts]
+tuneloop = "tuneloop.cli:app"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
